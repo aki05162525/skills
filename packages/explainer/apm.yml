@@ -1,0 +1,13 @@
+name: personal-explainer
+version: 0.1.0
+description: Reader-specific explanations, books, review, and diagrams.
+dependencies:
+  apm:
+    - git: mizchi/explainer
+      ref: ccdd7bacfb47451e38506d837af8a629504960b2
+      skills:
+        - explainer
+        - explainer-book
+        - first-reader
+        - d2-diagram
+        - d2-slides

@@ -1,0 +1,9 @@
+name: personal-eli5
+version: 0.1.0
+description: Explanations adapted to the audience's background.
+dependencies:
+  apm:
+    - git: DreambigOu/ELI5
+      ref: a766623b062331fdde53467001379b4ddf3acc2f
+      skills:
+        - eli5

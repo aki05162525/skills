@@ -1,0 +1,4 @@
+# Dependency bodies and generated agent files are installed at consumer sites.
+apm_modules/
+.agents/skills/
+.claude/skills/
