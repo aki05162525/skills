@@ -1,0 +1,9 @@
+name: personal-security-audit
+version: 0.1.0
+description: Security guidance and vulnerability review for codebases, APIs, services, CLI tools, libraries, and daemons.
+dependencies:
+  apm:
+    - git: cloudflare/security-audit-skill
+      ref: c1c8a8c1471069fb0e188eeaff69b8e8db6564a8
+      skills:
+        - security-audit

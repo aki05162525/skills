@@ -15,6 +15,7 @@
 | [explainer](packages/explainer/apm.yml) | 読み手に合わせた解説・学習資料・図の作成。関連する 5 スキルを含む |
 | [eli5](packages/eli5/apm.yml) | 年齢や職種など、読み手の背景に合わせた説明 |
 | [modern-web-guidance](packages/modern-web-guidance/apm.yml) | ウェブ標準・ブラウザ互換性に沿った実装 |
+| [security-audit](packages/security-audit/apm.yml) | コードベース・API・サービス等のセキュリティ指針と脆弱性レビュー |
 | [yomiyasu](packages/yomiyasu/apm.yml) | 意味と条件を保つ日本語の推敲 |
 
 ## プロジェクトへの導入
@@ -43,7 +44,7 @@ apm install --frozen # 別マシン・CI：lockfile の内容を復元
 
 **`apm.yml` と `apm.lock.yaml` を両方コミットする。** 更新内容だけ確認するなら `apm update --dry-run`。
 `targets` は使うエージェントに合わせて選ぶ。Claude 用は `.claude/skills/`、Codex 用は `.agents/skills/` に配置される。
-実行環境は別途用意する。explainer は Node 24+・用途に応じた npm 依存や作図ツール・Python 3、yomiyasu の付属検査は Python を使う。各 upstream の手順に従う。Modern Web Guidance が実行する `npx ...@latest` の取得内容は、APM の SHA 固定の対象外。
+実行環境は別途用意する。explainer は Node 24+・用途に応じた npm 依存や作図ツール・Python 3、security-audit の検証スクリプトは Node.js（監査で対象コードを実行する場合は OS サンドボックス）、yomiyasu の付属検査は Python を使う。各 upstream の手順に従う。Modern Web Guidance が実行する `npx ...@latest` の取得内容は、APM の SHA 固定の対象外。
 
 ## 追加・更新・削除
 
