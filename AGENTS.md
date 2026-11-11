@@ -3,7 +3,7 @@
 - 自作スキルの正本は `skills/<name>/`。用途と発動条件を `SKILL.md` の `description` に明記し、名前をディレクトリ名と一致させる。
 - 条件付きの詳細資料は必要に応じて `references/` へ分離し、本文から読む条件と相対リンクを示す。付属ファイルと他スキルへの参照を保持する。
 - 外部スキルの本体を正本としてコピーしない。`packages/<name>/apm.yml` で upstream、完全なコミット SHA、対象スキルを宣言する。用途は README に簡潔に記載し、登録・導入の状態と品質評価を区別する。根拠のない採用理由や評価結果を書かない。
-- 導入するパッケージと適用範囲は利用側で選び、利用先の `apm.yml` と `apm.lock.yaml` で管理する。README の導入例は manifest の編集と `apm install`・`apm update --yes`・`apm install --frozen` を基本とする。
+- 導入するパッケージと適用範囲は利用側で選び、利用先の `apm.yml` と `apm.lock.yaml` で管理する。例外として、ユーザースコープ（`apm install -g`）で ref なしに参照する場合は、`main` を追う前提で lockfile を利用側にコミットしない。README の導入例は manifest の編集と `apm install`・`apm update --yes`・`apm install --frozen` を基本とする。
 - 配布用の依存セットは `packages/` に置く。ルートの manifest はこのリポジトリ自身の開発用依存が必要な場合だけ作る。導入先の targets と lockfile は利用先で管理する。
 - APM と Agent Skills の仕様変更は公式資料と実装で確認する。独自のパッケージ管理や自動選定の仕組みは作らない。
 - 変更後は frontmatter、名前、参照先、導入手順を確認する。依存セットは新しい一時利用先で推移的依存、配置、固定復元を検証し、取得した本体をここに残さない。できなかった検証は実施済みと書かない。

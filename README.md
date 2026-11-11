@@ -46,10 +46,21 @@ apm install --frozen # 別マシン・CI：lockfile の内容を復元
 `targets` は使うエージェントに合わせて選ぶ。Claude 用は `.claude/skills/`、Codex 用は `.agents/skills/` に配置される。
 実行環境は別途用意する。explainer は Node 24+・用途に応じた npm 依存や作図ツール・Python 3、security-audit の検証スクリプトは Node.js（監査で対象コードを実行する場合は OS サンドボックス）、yomiyasu の付属検査は Python を使う。各 upstream の手順に従う。Modern Web Guidance が実行する `npx ...@latest` の取得内容は、APM の SHA 固定の対象外。
 
+### 全プロジェクト共通で使う
+
+ユーザースコープ（`~/.apm/`）に入れると、全プロジェクトで使える。`~/.apm/apm.yml` に同じ形式で書き、`-g` を付けて実行する。
+
+```sh
+apm install -g          # 宣言した依存を導入
+apm update -g --yes     # このリポジトリの更新を取り込む
+```
+
+ref を付けずに参照すると、各パッケージの `main` を追う。upstream の SHA はこのリポジトリで固定するため、更新の確認はここで行い、利用側の manifest は変えなくてよい。この使い方では lockfile をコミットせず、マシンごとに生成させる。
+
 ## 追加・更新・削除
 
 - **追加**：外部スキルは構成と実行要件を確認し、`packages/<name>/apm.yml` に upstream の完全 SHA と対象スキルを宣言する。自作スキルは `skills/<name>/SKILL.md` に用途と発動条件を書き、詳細資料を `references/` に分ける。
-- **更新**：upstream の差分を確認し、セットの `ref` と `version` を更新する。公開後、利用先で `apm update --yes` を実行する。
+- **更新**：upstream の差分を確認し、セットの `ref` と `version` を更新する。公開後、利用先で `apm update --yes`（ユーザースコープは `apm update -g --yes`）を実行する。
 - **削除**：利用先で `apm uninstall <パッケージ参照>` を実行し、manifest と lockfile の変更を保存する。セットを廃止する場合は、利用先の移行後に manifest を削除する。
 
 セットの追加・更新時は、一時プロジェクトで導入、付属ファイルと相対参照、`--frozen` での復元を検証する。導入成功と品質評価は区別する。
