@@ -1,8 +1,8 @@
 name: personal-modern-web-guidance
-version: 0.1.0
+version: 0.2.0
 description: Modern web platform guidance for web development projects.
 dependencies:
   apm:
     - git: GoogleChrome/modern-web-guidance
       path: skills/modern-web-guidance
-      ref: 341268561baaff256927c931ec8215dbd30e3cee
+      ref: 4dd968349e54ca45a05dd5c818fb035c9054b022
