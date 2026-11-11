@@ -55,5 +55,5 @@ apm install --frozen # 別マシン・CI：lockfile の内容を復元
 セットの追加・更新時は、一時プロジェクトで導入、付属ファイルと相対参照、`--frozen` での復元を検証する。導入成功と品質評価は区別する。
 自作スキルは利用先の依存に `aki05162525/skills/skills/<name>` を指定して個別導入できる。
 
-APM 0.35.0 でローカルセットの導入・固定復元を確認済み。出力品質は未評価。GitHub 経由の導入は未検証。
+APM 0.35.0 でローカルセットの導入・固定復元を確認済み。GitHub 経由では explainer・eli5・yomiyasu の導入（推移的依存とスキルの絞り込みを含む）と固定復元を確認済み。modern-web-guidance と security-audit の GitHub 経由の導入は未検証。出力品質は未評価。
 仕様：[Agent Skills](https://agentskills.io/specification) / [APM 導入](https://microsoft.github.io/apm/reference/cli/install/) / [APM 更新](https://microsoft.github.io/apm/reference/cli/update/)
